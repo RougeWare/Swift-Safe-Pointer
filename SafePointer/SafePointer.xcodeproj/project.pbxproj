@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A38A81562303C5E3008E2F95 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A38A81552303C5E3008E2F95 /* LICENSE.txt */; };
+		A38A81582303C630008E2F95 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A38A81572303C630008E2F95 /* README.md */; };
 		A38F14722300E94E00B6686C /* SafePointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38F14712300E94E00B6686C /* SafePointer.swift */; };
 		A393AB5E2300C93B00F898F1 /* SafePointer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A393AB542300C93B00F898F1 /* SafePointer.framework */; };
 		A393AB632300C93B00F898F1 /* SafePointerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A393AB622300C93B00F898F1 /* SafePointerTests.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A38A81552303C5E3008E2F95 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE.txt; path = ../LICENSE.txt; sourceTree = "<group>"; };
+		A38A81572303C630008E2F95 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		A38F14712300E94E00B6686C /* SafePointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafePointer.swift; path = "../../SafePointer (Swift Package)/Sources/SafePointer/SafePointer.swift"; sourceTree = "<group>"; };
 		A393AB542300C93B00F898F1 /* SafePointer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SafePointer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A393AB572300C93B00F898F1 /* SafePointer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SafePointer.h; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 		A393AB4A2300C93B00F898F1 = {
 			isa = PBXGroup;
 			children = (
+				A38A81572303C630008E2F95 /* README.md */,
+				A38A81552303C5E3008E2F95 /* LICENSE.txt */,
 				A393AB6E2300C98B00F898F1 /* SafePointer (Swift Package) */,
 				A393AB562300C93B00F898F1 /* SafePointer */,
 				A393AB612300C93B00F898F1 /* SafePointerTests */,
@@ -185,6 +191,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A38A81582303C630008E2F95 /* README.md in Resources */,
+				A38A81562303C5E3008E2F95 /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
