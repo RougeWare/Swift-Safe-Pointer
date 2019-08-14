@@ -80,7 +80,7 @@ public class SafePointer<Value>: Pointer {
     
     // MARK: Property wrapper
     
-    /// The same a `pointee`
+    /// The same `pointee`
     public var wrappedValue: Value { pointee }
     
     
