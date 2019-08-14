@@ -2,7 +2,7 @@
 
 Lets you pass anything using reference semantics without the danger of unsafe pointers.
 
-Do note that this is more of a conceptual pointer; one which points to some intance. This acknowledges no concept of memory addresses nor traversing memory. For that, you can use Swift's built-in `UnsafePointer` and its sisters.
+Do note that this is more of a conceptual pointer; one which points to some instance. This acknowledges no concept of memory addresses nor traversing memory. For that, you can use Swift's built-in `UnsafePointer` and its sisters.
 
 
 ## Kinds ##
