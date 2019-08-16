@@ -1,3 +1,5 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/rougeware/swift-safe-pointer/badge)](https://www.codefactor.io/repository/github/rougeware/swift-safe-pointer)
+
 # SafePointer #
 
 Lets you pass anything using reference semantics without the danger of unsafe pointers.
