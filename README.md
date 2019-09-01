@@ -13,3 +13,8 @@ Do note that this is more of a conceptual pointer; one which points to some inst
 * [`MutableSafePointer`](https://github.com/RougeWare/Swift-Lazy-Patterns/blob/SafePointer%20(Swift%20Package)/Sources/SafePointer/SafePointer.swift#L96-L134): A mutable version of `SafePointer`. Also lets you provide a did-set listener!
 
 * And a framework for building your own kinds of pointers!
+
+
+## Compatibility ##
+
+In version `1.0.0`, the key file was located at `./SafePointer (Swift Package)/Sources/SafePointer/SafePointer.swift`. Now, it is located at `./Sources/SafePointer/SafePointer.swift`. Because the location of the file in the repo changed entirely, the version number was changed to `2.0.0`, although **the API has not changed at all since `1.0.0`**. As long as you make your project point to `SafePointer.swift`, it will be precisely the same in `2.0.0` as it was in `1.0.0`.
