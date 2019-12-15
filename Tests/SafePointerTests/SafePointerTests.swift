@@ -134,6 +134,17 @@ final class SafePointerTests: XCTestCase {
     }
     
     
+    func testMutatingStructWithPropertyWrapper() {
+        let value = HasMutableSafePointerAsPropertyWrapper(innerValue: 0)
+        
+        XCTAssertEqual(0, value.innerValue)
+        
+        value.innerValue = 42
+        
+        XCTAssertEqual(42, value.innerValue)
+    }
+    
+    
     func testMutatingNestedStructByReference() {
         let value = PassByValueParent(child: PassByValueParent.Child(innerValue: 0))
         let reference = MutableSafePointer(to: value)
@@ -260,6 +271,7 @@ final class SafePointerTests: XCTestCase {
         ("testPassingStructByReference", testPassingStructByReference),
         ("testPassingNestedStructByReference", testPassingNestedStructByReference),
         ("testMutatingStructByReference", testMutatingStructByReference),
+        ("testMutatingStructWithPropertyWrapper", testMutatingStructWithPropertyWrapper),
         ("testMutatingNestedStructByReference", testMutatingNestedStructByReference),
         ("testOnPointerDidChange", testOnPointerDidChange),
     ]
@@ -276,5 +288,11 @@ final class SafePointerTests: XCTestCase {
         var child: Child
         
         typealias Child = PassByValue
+    }
+    
+    
+    struct HasMutableSafePointerAsPropertyWrapper {
+        @MutableSafePointer
+        var innerValue: Int
     }
 }
