@@ -126,7 +126,10 @@ public final class MutableSafePointer<Value>: SafePointer<Value>, MutablePointer
     
     // MARK: Property wrapper
     
-    override public var wrappedValue: Value { self.pointee }
+    override public var wrappedValue: Value {
+        get { self.pointee }
+        set { self.pointee = newValue }
+    }
     
     public convenience init(wrappedValue: Value) {
         self.init(to: wrappedValue)
