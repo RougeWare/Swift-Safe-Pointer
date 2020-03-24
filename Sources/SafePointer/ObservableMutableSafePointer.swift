@@ -1,9 +1,9 @@
 //
-//  MutablePointer.swift
+//  ObservableMutableSafePointer.swift
 //  SafePointer
 //
 //  Created by Ben Leggiero on 2020-03-22.
-//  Copyright © 2019 Blue Husky Studios BH-0-PD
+//  Copyright © 2020 Blue Husky Studios BH-0-PD
 //  https://github.com/BlueHuskyStudios/Licenses/blob/master/Licenses/BH-0-PD.txt
 //
 
