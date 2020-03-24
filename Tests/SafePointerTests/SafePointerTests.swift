@@ -267,6 +267,80 @@ final class SafePointerTests: XCTestCase {
     }
     
     
+    func testMultipleOnPointerDidChange() {
+        var changeWitnessA = 0
+        var changeWitnessB = 0
+        
+        
+        func updateWitnessA(oldValue: PassByValue, newValue: PassByValue) {
+            XCTAssertEqual(oldValue.innerValue, changeWitnessA)
+            changeWitnessA += 1
+            XCTAssertEqual(newValue.innerValue, changeWitnessA)
+        }
+        
+        
+        func updateWitnessB(oldValue: PassByValue, newValue: PassByValue) {
+            XCTAssertEqual(oldValue.innerValue, changeWitnessB)
+            changeWitnessB += 1
+            XCTAssertEqual(newValue.innerValue, changeWitnessB)
+        }
+        
+        
+        let value = PassByValue(innerValue: 0)
+        var updateWitnessAIdentifier = ObservableMutableSafePointer.ObserverIdentifier()
+        let reference = ObservableMutableSafePointer(to: value, newObserverIdentifier: &updateWitnessAIdentifier, onPointeeDidChange: updateWitnessA)
+        let updateWitnessBIdentifier = reference.addObserver(updateWitnessB)
+        let referenceCopyA = reference
+        let referenceCopyB = reference
+        
+        XCTAssertEqual(changeWitnessA, 0)
+        XCTAssertEqual(changeWitnessB, 0)
+        
+        reference.pointee.innerValue += 1
+        
+        XCTAssertEqual(changeWitnessA, 1)
+        XCTAssertEqual(changeWitnessB, 1)
+        
+        referenceCopyA.pointee.innerValue += 1
+        
+        XCTAssertEqual(changeWitnessA, 2)
+        XCTAssertEqual(changeWitnessB, 2)
+        
+        referenceCopyB.pointee.innerValue += 1
+        
+        XCTAssertEqual(changeWitnessA, 3)
+        XCTAssertEqual(changeWitnessB, 3)
+        
+        let removeResultRandom = reference.removeObserver(withId: .random(in: .min ... .max))
+        XCTAssertEqual(removeResultRandom, .observerNotFound)
+        
+        XCTAssertEqual(changeWitnessA, 3)
+        XCTAssertEqual(changeWitnessB, 3)
+        
+        let removeResultA = reference.removeObserver(withId: updateWitnessAIdentifier)
+        XCTAssertEqual(removeResultA, .removedSuccessfully)
+        
+        reference.pointee.innerValue += 1
+        
+        XCTAssertEqual(changeWitnessA, 3)
+        XCTAssertEqual(changeWitnessB, 4)
+        
+        let removeResultB = reference.removeObserver(withId: updateWitnessBIdentifier)
+        XCTAssertEqual(removeResultB, .removedSuccessfully)
+        
+        reference.pointee.innerValue += 1
+        
+        XCTAssertEqual(changeWitnessA, 3)
+        XCTAssertEqual(changeWitnessB, 4)
+        
+        let removeResultA2 = reference.removeObserver(withId: updateWitnessAIdentifier)
+        XCTAssertEqual(removeResultA2, .observerNotFound)
+        
+        let removeResultB2 = reference.removeObserver(withId: updateWitnessBIdentifier)
+        XCTAssertEqual(removeResultB2, .observerNotFound)
+    }
+    
+    
     static var allTests = [
         ("testPassingStructByReference", testPassingStructByReference),
         ("testPassingNestedStructByReference", testPassingNestedStructByReference),
@@ -274,6 +348,7 @@ final class SafePointerTests: XCTestCase {
         ("testMutatingStructWithPropertyWrapper", testMutatingStructWithPropertyWrapper),
         ("testMutatingNestedStructByReference", testMutatingNestedStructByReference),
         ("testOnPointerDidChange", testOnPointerDidChange),
+        ("testMultipleOnPointerDidChange", testMultipleOnPointerDidChange),
     ]
     
     
