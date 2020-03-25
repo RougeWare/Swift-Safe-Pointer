@@ -68,7 +68,10 @@ public final class ObservableMutableSafePointer<Value>: SafePointer<Value>, Muta
     
     // MARK: Property wrapper
     
-    override public var wrappedValue: Value { self.pointee }
+    override public var wrappedValue: Value {
+        get { self.pointee }
+        set { self.pointee = newValue }
+    }
     
     public convenience init(wrappedValue: Value) {
         self.init(to: wrappedValue)
