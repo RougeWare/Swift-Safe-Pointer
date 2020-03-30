@@ -150,10 +150,10 @@ public extension ObservableMutableSafePointer {
 }
 
 
-                                                                                    // OMS   P
-typealias MutableSafeObservablePointer<Value> = ObservableMutableSafePointer<Value> //  MSO  P
-typealias SafeObservableMutablePointer<Value> = ObservableMutableSafePointer<Value> //   SOM P
-typealias MutableObservableSafePointer<Value> = ObservableMutableSafePointer<Value> // MOS   P
-typealias ObservableSafeMutablePointer<Value> = ObservableMutableSafePointer<Value> //  OSM  P
-typealias SafeMutableObservablePointer<Value> = ObservableMutableSafePointer<Value> //   SMO P
+                                                                                           // OMS   P
+public typealias MutableSafeObservablePointer<Value> = ObservableMutableSafePointer<Value> //  MSO  P
+public typealias SafeObservableMutablePointer<Value> = ObservableMutableSafePointer<Value> //   SOM P
+public typealias MutableObservableSafePointer<Value> = ObservableMutableSafePointer<Value> // MOS   P
+public typealias ObservableSafeMutablePointer<Value> = ObservableMutableSafePointer<Value> //  OSM  P
+public typealias SafeMutableObservablePointer<Value> = ObservableMutableSafePointer<Value> //   SMO P
 
