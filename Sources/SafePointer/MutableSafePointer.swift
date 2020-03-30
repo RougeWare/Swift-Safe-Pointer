@@ -50,4 +50,4 @@ public final class MutableSafePointer<Value>: SafePointer<Value>, MutablePointer
 
 
 
-typealias SafeMutablePointer<Value> = MutableSafePointer<Value>
+public typealias SafeMutablePointer<Value> = MutableSafePointer<Value>
