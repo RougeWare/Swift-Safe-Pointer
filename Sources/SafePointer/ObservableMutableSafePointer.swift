@@ -127,9 +127,6 @@ public extension ObservableMutableSafePointer {
     
     
     
-    /// The type of identifier used to identify a function that's been added to the observer queue
-    typealias ObserverIdentifier = Int
-    
     /// An observer that's been added to the observer queue, and its corresponding identifier
     fileprivate typealias AddedObserver = (identifier: ObserverIdentifier, observer: OnPointeeDidChange)
     
@@ -148,6 +145,11 @@ public extension ObservableMutableSafePointer {
         case observerNotFound
     }
 }
+
+
+
+/// The type of identifier used to identify a function that's been added to the observer queue
+public typealias ObserverIdentifier = Int
 
 
                                                                                            // OMS   P
