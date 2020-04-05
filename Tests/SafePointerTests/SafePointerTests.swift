@@ -287,7 +287,7 @@ final class SafePointerTests: XCTestCase {
         
         
         let value = PassByValue(innerValue: 0)
-        var updateWitnessAIdentifier = ObservableMutableSafePointer.ObserverIdentifier()
+        var updateWitnessAIdentifier = ObserverIdentifier()
         let reference = ObservableMutableSafePointer(to: value, newObserverIdentifier: &updateWitnessAIdentifier, onPointeeDidChange: updateWitnessA)
         let updateWitnessBIdentifier = reference.addObserver(updateWitnessB)
         let referenceCopyA = reference
